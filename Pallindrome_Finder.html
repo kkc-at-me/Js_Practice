@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #212f3d ;
+  padding: 20px;
+}
+.inner{
+   height: 95vh;
+   width: 100%;
+   background-color: #34495e ; 
+   border-radius: 10px;
+}
+h1{
+    padding-top: 100px;
+    text-align: center;
+    color: white;
+}
+.in{
+    width: 20rem;
+}
+#ans{
+    color: yellow;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+    <div class="inner">
+            <h1>Pallindrome Finder</h1>
+            <div style="text-align:center;">
+                <input id="pass"  class="in" type="text" placeholder="Enter String"/>
+            </div>
+            <div style="text-align:center;padding-top: 25px;">    
+                <button onclick="pallindromeFinder();">Find</button>
+            </div>
+            <div id="ans" style="text-align:center;padding-top: 25px;">
+            </div>
+            
+    </div>
+</body>
+<script>
+    function pallindromeFinder(){
+        document.getElementById("ans").innerHTML = "";
+        let stringData = document.getElementById("pass").value;
+        let numberData = stringData.match(/[0-9]+/g);
+        let pallindrome = numberData.filter(function checkPallindrome(value){
+            if (value == value.split("").reverse().join("")){
+                return true;
+            }
+        })
+        document.getElementById("ans").innerHTML =  pallindrome.join("<br><br>");
+    }
+</script>
+</html> 
