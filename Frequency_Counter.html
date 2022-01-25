@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #212f3d ;
+  padding: 20px;
+}
+.inner{
+   height: 95vh;
+   width: 100%;
+   background-color: #34495e ; 
+   border-radius: 10px;
+}
+h1{
+    padding-top: 100px;
+    text-align: center;
+    color: white;
+}
+.in{
+    width: 20rem;
+}
+#ans{
+    color: yellow;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+    <div class="inner">
+            <h1>Frequency Counter</h1>
+            <div style="text-align:center;">
+                <input id="text"  class="in" type="text" placeholder="Enter Text"/>
+            </div>
+            <div style="text-align:center;padding-top: 25px;">    
+                <button onclick="countFrequency();">Count</button>
+            </div>
+            <div id="ans" style="text-align:center;padding-top: 25px;">
+            </div>
+            
+    </div>
+</body>
+<script>
+    function countFrequency(){
+        document.getElementById("ans").innerHTML = "";
+        let data = document.getElementById("text").value.split("");
+        var count_dict = {};
+        for (let i=0;i<data.length;i++){
+            let char = data[i];
+            if(count_dict[char]){
+                count_dict[char]++;
+            }else{
+                count_dict[char] = 1;
+            }
+        }
+        var letter = Object.keys(count_dict);
+        var val = Object.values(count_dict);
+        var ans= "";
+        for(let i=0;i<letter.length;i++){
+            ans += letter[i]+val[i];
+        }
+        document.getElementById("ans").innerHTML = ans;
+    }
+</script>
+</html> 
